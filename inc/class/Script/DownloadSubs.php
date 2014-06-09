@@ -41,7 +41,7 @@ class DownloadSubs extends Script
             foreach($videos as $v) {
                 $srt = str_replace($videoExts, $srtExt, $v);
                 if(!in_array($srt, $subs)) {
-                    exec(sprintf($subliminalCmd, $this->_lang, $v));
+                    exec(sprintf(self::SUBLIMINAL_CMD, $this->_lang, $v));
                 }
             }
         }
