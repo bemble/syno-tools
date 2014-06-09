@@ -46,24 +46,18 @@ To make it work, edit the following files as below:
 
 __/volume1/@appstore/env/lib/python2.7/site-packages/subliminal/videos.py, (line 72)__:
 
-Change from:
+* Line 72, from:
+        guess = guessit.guess_file_info(path, 'autodetect')
+* to:
+        guess = guessit.guess_file_info(path, 'filename')
 
-    guess = guessit.guess_file_info(path, 'autodetect')
-    
-to:
+__/volume1/@appstore/env/lib/python2.7/site-packages/subliminal/core.py__
 
-    guess = guessit.guess_file_info(path, 'filename')
+* Line 158, from :
+        guess = guessit.guess_file_info(subtitle.release, 'autodetect')
+* to:
+        guess = guessit.guess_file_info(subtitle.release, 'filename')
 
-__/volume1/@appstore/env/lib/python2.7/site-packages/subliminal/core.py, (line 158)__:
-
-Change from:
-
-    guess = guessit.guess_file_info(subtitle.release, 'autodetect')
-    
-to:
-
-    guess = guessit.guess_file_info(subtitle.release, 'filename')
-    
 ### Run as a different user
 
 By default, subliminal is ran by *subliminal* user. You may need to run it with a different user.
@@ -71,12 +65,8 @@ Follow these steps to run with a different user (you will need to login as root 
 
 1. Stop Subliminal in DSM (*Package manager* -> *Subliminal* -> *Action* -> *Stop*)
 2. Change subliminal owner:
-
-    chown -R YOUR_USER:users /volume1/@appstore/subliminal
-    
+        chown -R YOUR_USER:users /volume1/@appstore/subliminal
 3. Edit /etc/passwd and change the end of the line for your user from */sbin/nologin* to */bin/sh*. It should be something like that:
-
-    YOUR_USER:x:1001:100::/var/services/homes/YOUR_USER:/bin/sh
-    
+        YOUR_USER:x:1001:100::/var/services/homes/YOUR_USER:/bin/sh
 4. Finally, change the user in the start script. Edit */var/packages/subliminal/scripts/start-stop-status* and change the line *USER="subliminal"* to *USER="YOUR_USER"*
 5. Restart Subliminal in DSM
