@@ -34,6 +34,10 @@ abstract class Script
     protected function __construct()
     {
         $this->_lock();
+        
+        // Delete lock on CTRL+C
+        pcntl_signal(SIGTERM, [$this, '__destruct']);  
+        pcntl_signal(SIGINT, [$this, '__destruct']); 
     }
     
     public function __destruct()
