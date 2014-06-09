@@ -1,0 +1,18 @@
+{
+    "subs": {
+        "myLang": "LANGCODE" // Ex: fr
+    },
+    "sickbeard": {
+        "host": "PROTOCOL://IP:PORT", // Ex: http://localhost:8081 or https://localhost:8081
+        "apiKey": "APIKEY"
+    },
+    "kickassTorrent": {
+        "dayDumpUrl": "http://kickass.to/hourlydump.txt.gz", // Updated every hour
+        "fullDumpUrl": "http://kickass.to/dailydump.txt.gz" // /!\ Huge file, updated every day
+    },
+    "synology": {
+        "host": "PROTOCOL://IP:PORT", // Ex: https://localhost:5001 or http://localhost:5000
+        "user": "USER",
+        "password": "PASSWORD"
+    }
+}
