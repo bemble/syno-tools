@@ -44,7 +44,7 @@ You can now run the scripts manually and/or add an automatic task in the task ma
 Subliminal requires guessit lib v0.7.0 to work and is not compatible (for now) with guessit v0.7.1. Sadly, the guessit version installed on Synology NAS is v0.7.1.
 To make it work, edit the following files as below:
 
-__/volume1/@appstore/env/lib/python2.7/site-packages/subliminal/videos.py, (line 72)__:
+__/volume1/@appstore/subliminal/env/lib/python2.7/site-packages/subliminal/videos.py, (line 72)__:
 
 * Line 72, from:
 
@@ -55,7 +55,7 @@ __/volume1/@appstore/env/lib/python2.7/site-packages/subliminal/videos.py, (line
         guess = guessit.guess_file_info(path, 'filename')
 
 
-__/volume1/@appstore/env/lib/python2.7/site-packages/subliminal/core.py__
+__/volume1/@appstore/subliminal/env/lib/python2.7/site-packages/subliminal/core.py__
 
 * Line 158, from:
 
